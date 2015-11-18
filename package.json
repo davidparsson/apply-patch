@@ -7,6 +7,7 @@
     "type": "git",
     "url": "git://github.com/davidparsson/apply-patch.git"
   },
+  "author": "David Pärsson <david@parsson.se>",
   "license": "MIT",
   "bin": {
     "apply-patch": "./index.js"
