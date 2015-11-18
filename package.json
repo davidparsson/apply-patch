@@ -1,0 +1,17 @@
+{
+  "name": "apply-patch",
+  "version": "0.1.0",
+  "description": "Applies patch files",
+  "main": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/davidparsson/apply-patch.git"
+  },
+  "license": "MIT",
+  "bin": {
+    "apply-patch": "./index.js"
+  },
+  "dependencies": {
+    "diff": "2.1.1"
+  }
+}
