@@ -5,14 +5,14 @@ var fs = require("fs");
 function applyPatch(patchFile) {
   var patch = fs.readFileSync(patchFile, "utf8");
 
-  var sourceFileMatch = /--- ([^ \n\r]+).*/.exec(patch);
+  var sourceFileMatch = /--- ([^ \n\r\t]+).*/.exec(patch);
   var sourceFile;
   if (sourceFileMatch && sourceFileMatch[1]) {
     sourceFile = sourceFileMatch[1];
   } else {
     throw Error("Unable to find source file in '" + patchFile + "'");
   }
-  var destinationFileMatch = /\+\+\+ ([^ \n\r]+).*/.exec(patch);
+  var destinationFileMatch = /\+\+\+ ([^ \n\r\t]+).*/.exec(patch);
   var destinationFile;
   if (destinationFileMatch && destinationFileMatch[1]) {
     destinationFile = destinationFileMatch[1];
