@@ -24,7 +24,7 @@ function applyPatch(patchFile) {
   var patched = diff.applyPatch(original, patch);
 
   if (patched === false) {
-    throw Error("Failed apply patch '" + patchFile + "' to '" + sourceFile + "'");
+    throw Error("Failed to apply patch '" + patchFile + "' to '" + sourceFile + "'");
   } else if (sourceFile !== destinationFile) {
     console.log("Applied '" + patchFile + "' to '" + sourceFile + "' and stored it as '" +
       destinationFile + "'");
