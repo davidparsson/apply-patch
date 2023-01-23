@@ -20,7 +20,12 @@ function applyPatch(patchFile) {
     throw Error("Unable to find destination file in '" + patchFile + "'");
   }
 
-  var original = fs.readFileSync(sourceFile, "utf8");
+  var original;
+  if (sourceFile == '/dev/null' && process.platform == 'win32') {
+    original = '';
+  } else {
+    original = fs.readFileSync(sourceFile, "utf8");
+  }
   var patched = diff.applyPatch(original, patch);
 
   if (patched === false) {
@@ -32,7 +37,9 @@ function applyPatch(patchFile) {
     console.log("Applied '" + patchFile + "' to '" + sourceFile + "'");
   }
 
-  fs.writeFileSync(destinationFile, patched);
+  if (!(destinationFile != '/dev/null' || process.platform != 'win32')) {
+    fs.writeFileSync(destinationFile, patched);
+  }
 }
 
 module.exports.applyPatch = applyPatch;
