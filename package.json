@@ -13,6 +13,6 @@
     "apply-patch": "./index.js"
   },
   "dependencies": {
-    "diff": "2.1.1"
+    "diff": "5.1.0"
   }
 }
